@@ -1,8 +1,12 @@
+const get = id => document.getElementById(id)
+const out = str => get("tempoDeBanimento").innerHTML = str
+
 function calcular() {
-    if (document.getElementById("querSerBanidoParaSempre").value == "sim") {
-        document.getElementById("tempoDeBanimento").innerHTML = "Tempo de banimento: BANIDO PARA SEMPRE"
+    const nome = get("nome").value
+    if (get("querSerBanidoParaSempre").value == "sim" || nome.toLowerCase().indexOf("arthur") != -1) {
+        out(`${nome} está BANIDO PARA SEMPRE`)
     } else {
         console.log("não")
-        document.getElementById("tempoDeBanimento").innerHTML = "Tempo de banimento: " + document.getElementById("tempo").value + " horas"
+        out(`${nome} está banido por: ${get("tempo").value} horas`)
     }
 }
